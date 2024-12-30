@@ -21,9 +21,7 @@ export interface IPlan {
 export interface IUser {
   id: string;
   name: string;
-  email?: string;
-  password?: string;
-  id_tenant?: string;
+  id_tenant: string;
   tenants?: ITenant;
   last_name: string;
   image_url: string;
@@ -41,7 +39,6 @@ export interface IAuthContextProvider {
   profile: IUser;
   session: Session | null;
   getProfile: (id: string) => void;
-  updateProfile: (user: IUser) => void;
   loading: boolean;
   signOut: () => void;
   deleteUser: (id: string) => void;

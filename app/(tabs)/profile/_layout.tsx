@@ -115,23 +115,6 @@ export default function ProfileLayout() {
           }}
         />
         <Stack.Screen
-          name="edit"
-          options={{
-            title: "Editar Perfil",
-            headerLargeTitle: true,
-            headerBackVisible: true,
-            headerShadowVisible: true,
-            headerLargeTitleShadowVisible: false,
-            headerRight: () => (
-              <NativeButton
-                title="Cancelar"
-                color="#FF6247"
-                onPress={() => router.back()}
-              />
-            ),
-          }}
-        />
-        <Stack.Screen
           name="membership"
           options={{
             title: "Membresía",

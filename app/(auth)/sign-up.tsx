@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 import { router } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { KeyboardAvoidingView, ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { toast } from "sonner-native";
@@ -100,8 +100,8 @@ export default function SignUpScreen() {
   };
 
   return (
-    <KeyboardAvoidingView behavior="height" enabled style={{ flex: 1 }}>
-      <ScrollView className="bg-white  dark:bg-zinc-900 p-4">
+    <ScrollView className="bg-white  dark:bg-zinc-900">
+      <SafeAreaView className="flex flex-col justify-center align-middle m-4 items-center ">
         <View className="flex flex-col gap-10 w-full items-center">
           <View className="flex flex-col items-center gap-8 mt-10">
             <Image
@@ -127,7 +127,7 @@ export default function SignUpScreen() {
               render={({ field: { onChange, value } }) => (
                 <View className="flex flex-col gap-2">
                   <TextInput
-                    label="Nombre del Negocio"
+                    label="Negocio"
                     mode="outlined"
                     error={errors.company ? true : false}
                     onChangeText={onChange}
@@ -147,31 +147,6 @@ export default function SignUpScreen() {
                   value: true,
                   message: "Ingrese el nombre del negocio",
                 },
-              }}
-            />
-            <Controller
-              control={control}
-              name="name"
-              render={({ field: { onChange, value } }) => (
-                <View className="flex flex-col gap-2">
-                  <TextInput
-                    label="Nombres"
-                    mode="outlined"
-                    error={errors.name ? true : false}
-                    onChangeText={onChange}
-                    value={value}
-                  />
-                  {errors.name && (
-                    <View className="flex flex-row gap-1">
-                      <Text className="text-red-500">
-                        {errors.name.message}
-                      </Text>
-                    </View>
-                  )}
-                </View>
-              )}
-              rules={{
-                required: { value: true, message: "Ingrese tus nombres" },
               }}
             />
             <Controller
@@ -199,7 +174,31 @@ export default function SignUpScreen() {
                 required: { value: true, message: "Ingrese tus apellidos" },
               }}
             />
-
+            <Controller
+              control={control}
+              name="name"
+              render={({ field: { onChange, value } }) => (
+                <View className="flex flex-col gap-2">
+                  <TextInput
+                    label="Nombres"
+                    mode="outlined"
+                    error={errors.name ? true : false}
+                    onChangeText={onChange}
+                    value={value}
+                  />
+                  {errors.name && (
+                    <View className="flex flex-row gap-1">
+                      <Text className="text-red-500">
+                        {errors.name.message}
+                      </Text>
+                    </View>
+                  )}
+                </View>
+              )}
+              rules={{
+                required: { value: true, message: "Ingrese tus nombres" },
+              }}
+            />
             <Controller
               control={control}
               name="email"
@@ -274,7 +273,7 @@ export default function SignUpScreen() {
             </Text>
           </View>
         </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      </SafeAreaView>
+    </ScrollView>
   );
 }

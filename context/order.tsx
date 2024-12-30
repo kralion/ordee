@@ -8,7 +8,7 @@ import { startOfToday, endOfToday, addHours } from "date-fns";
 import { FontAwesome } from "@expo/vector-icons";
 import { useAuth } from "./auth";
 export const OrderContext = createContext<IOrderContextProvider>({
-  addOrder: async () => { },
+  addOrder: async () => {},
   getUnservedOrders: async () => [],
   getOrdersCountByDay: async () => 0,
   addTable: async () => {},
